@@ -1,0 +1,18 @@
+# Test artifacts
+tests/*.png
+tests/*.jpg
+tests/.artifacts/
+
+# Build output
+*.zip
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Dependencies
+node_modules/
+vendor/

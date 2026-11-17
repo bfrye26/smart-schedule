@@ -1,0 +1,15 @@
+.ss-admin{max-width:990px}
+.ss-admin>.ss-admin-card,.ss-admin-card{background:#fff;border:1px solid #dcdcde;border-radius:9px;padding:22px 24px;margin:18px 0;box-shadow:0 1px 1px rgba(0,0,0,.03)}
+.ss-admin-card h2{margin:0 0 12px;font-size:18px}
+.ss-admin-card p{color:#50575e}
+.ss-admin-check{display:block;padding:9px 0;font-weight:500}
+.ss-admin-field{margin:16px 0 18px;max-width:740px}
+.ss-admin-field>label{display:block;font-weight:600;margin-bottom:7px}
+.ss-admin-field select,.ss-admin-field textarea{width:100%;max-width:640px}
+.ss-admin-field input[type=number]{width:100px}
+.ss-types{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}
+.ss-types label{border:1px solid #ddd;border-radius:5px;padding:11px;line-height:1.5}
+.ss-types code{font-size:11px;color:#646970}
+.ss-admin-card th{width:30%;text-align:left}
+.ss-admin-card td,.ss-admin-card th{padding:11px}
+@media(max-width:600px){.ss-admin-card{padding:15px}.ss-admin-card th{width:45%}}

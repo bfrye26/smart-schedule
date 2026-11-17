@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"/><title>Smart Schedule Gutenberg mock</title>
+<style>
+body{font:14px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#1e1e1e;margin:0;background:#f6f7f7}
+#wp-admin-bar{height:32px;background:#1d2327;color:#fff;display:flex;align-items:center;padding:0 16px}
+#editor{display:flex;min-height:calc(100vh - 32px)}
+#canvas{flex:1;background:#fff;padding:45px 60px}
+#canvas h1{font-size:34px;font-weight:500}
+#sidebar{width:280px;background:#fff;border-left:1px solid #ddd;padding:17px}
+#sidebar h3{font-size:17px}
+.editor-post-schedule__dialog-toggle{color:#2271b1;font:inherit;border:0;background:transparent;cursor:pointer;padding:6px}
+.publish-row{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #eee;padding:15px 0}
+.publish-row span{font-weight:600}
+</style><link rel="stylesheet" href="../assets/scheduler.css"/></head>
+<body><div id="wp-admin-bar">W &nbsp; Smart Schedule RC5 test site</div>
+<div id="editor"><main id="canvas"><h1>Article: Scheduled publication</h1><p>Confirm the date in the WordPress Publish row.</p><pre id="result"></pre></main>
+<aside id="sidebar"><h3>Post settings</h3><div class="publish-row"><span>Publish</span><button class="editor-post-schedule__dialog-toggle" aria-label="Change date: November 20 2026">November 20, 2026</button></div></aside></div>
+<script>
+window.nativeClicks=0;
+document.querySelector('.editor-post-schedule__dialog-toggle').addEventListener('click',function(){window.nativeClicks++;});
+window.SmartScheduleData={siteZone:'America/Toronto',zone:'America/Los_Angeles',clock:'12',zones:['America/Toronto','America/Los_Angeles','Europe/London','UTC','Asia/Tokyo'],favorites:['America/Toronto','America/Los_Angeles'],showUtc:true,remember:true,minLead:2,weekStart:0,nonce:'fake',postId:5};
+window.postData={id:5,status:'future',date:'2026-11-20T12:30:00',date_gmt:'2026-11-20T17:30:00Z'};
+window.edits={};window.notices=[];window.subscribers=[];
+// Save-flow simulation state: lets tests drive isSavingPost transitions.
+window.saveState={saving:false,autosaving:false};
+window.failRoutes={};
+function format(ts, zone){
+ const utc=new Date(ts),formatter=new Intl.DateTimeFormat('en-CA',{timeZone:zone==="+00:00"?"UTC":zone,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'});
+ const parts=Object.fromEntries(formatter.formatToParts(utc).filter(p=>p.type!=='literal').map(p=>[p.type,p.value]));
+ const date=parts.year+'-'+parts.month+'-'+parts.day, time=parts.hour+':'+parts.minute, offset=(Date.UTC(+parts.year,+parts.month-1,+parts.day,+parts.hour,+parts.minute,+parts.second)-utc.getTime())/1000;
+ const sign=offset<0?'-':'+',abs=Math.abs(offset), offs=sign+String(Math.floor(abs/3600)).padStart(2,'0')+':'+String(Math.floor((abs%3600)/60)).padStart(2,'0');
+ const weekday=new Intl.DateTimeFormat('en-US',{timeZone:zone==="+00:00"?"UTC":zone,weekday:'long'}).format(utc);
+ return {date,time,iso_local:date+'T'+time+':00',weekday,abbrev:zone==='UTC'?'UTC':zone==='America/Toronto'?(offs==='-04:00'?'EDT':'EST'):zone==='America/Los_Angeles'?(offs==='-07:00'?'PDT':'PST'):'GMT',zone,offset:offs};
+}
+function fromUtc(iso, zone){const instant=new Date(iso);return {status:'valid',eligible:instant.getTime()>Date.now()+(Number(window.SmartScheduleData.minLead)||0)*60000,future:instant.getTime()>Date.now(),utc:instant.toISOString().slice(0,19)+'Z',selected:format(instant,zone),site:format(instant,'America/Toronto'),gmt:format(instant,'UTC'),choice:''};}
+function toUTC(date,time,zone){
+ const [y,m,d]=date.split('-').map(Number),[h,min]=time.split(':').map(Number), wall=Date.UTC(y,m-1,d,h,min);
+ let guess=wall;
+ for(let i=0;i<3;i++){const local=format(guess,zone),off=Number(local.offset.slice(1,3))*60+Number(local.offset.slice(4,6));guess=wall-(local.offset.startsWith('-')?-off:off)*60000;}
+ return new Date(guess).toISOString().slice(0,19)+'Z';
+}
+window.wp={apiFetch:function(opts){
+ const path=new URL(opts.path,'https://fake.test');let args=opts.method==='GET'?Object.fromEntries(path.searchParams):opts.data;
+ const route=path.pathname.split('/').pop();
+ if(window.failRoutes[route])return Promise.reject(new Error('Simulated network failure'));
+ if(path.pathname.endsWith('/format'))return Promise.resolve(fromUtc(args.utc,args.timezone));
+ if(path.pathname.endsWith('/convert'))return Promise.resolve(fromUtc(toUTC(args.date,args.time,args.timezone),args.timezone));
+ if(path.pathname.endsWith('/preferences'))return Promise.resolve({saved:true});
+ return Promise.reject(new Error('Unknown route'));
+},data:{
+ select:function(name){if(name!=='core/editor')return null;return {
+   getCurrentPostId:()=>window.postData.id,
+   getEditedPostAttribute:(prop)=>window.edits[prop] === undefined?window.postData[prop]:window.edits[prop],
+   getCurrentPostAttribute:(prop)=>window.postData[prop],
+   isSavingPost:()=>window.saveState.saving,isAutosavingPost:()=>window.saveState.autosaving
+ };},
+ dispatch:function(name){if(name==='core/notices')return {createNotice:(level,message)=>window.notices.push({level,message})};if(name==='core/editor')return {editPost:(updates)=>{Object.assign(window.edits,updates);window.subscribers.forEach(f=>f());}};return null;},
+ subscribe:function(callback){window.subscribers.push(callback);return function(){window.subscribers=window.subscribers.filter(f=>f!==callback);};}
+}};
+// Simulate WordPress completing a manual save: persist the staged date_gmt
+// (or an override to test the mismatch warning), then clear the edited state.
+window.simulateSave=function(savedGmtOverride){
+ window.saveState.saving=true;window.subscribers.forEach(f=>f());
+ return new Promise(function(resolve){setTimeout(function(){
+   var saved=(savedGmtOverride!==undefined?savedGmtOverride:window.edits.date_gmt)||window.postData.date_gmt;
+   window.postData.date_gmt=saved;
+   window.postData.date=window.edits.date||window.postData.date;
+   window.edits={};
+   window.saveState.saving=false;window.subscribers.forEach(f=>f());
+   resolve();
+ },30);});
+};
+wp.apiFetch.use=function(){};wp.apiFetch.createNonceMiddleware=function(){return function(){}};
+</script><script src="../assets/scheduler.js"></script><script src="../assets/editor.js"></script>
+</body></html>

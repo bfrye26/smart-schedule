@@ -1,0 +1,628 @@
+# Smart Schedule translation template.
+msgid ""
+msgstr ""
+"Project-Id-Version: Smart Schedule 1.1.0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Domain: smart-schedule\n"
+
+#: assets/scheduler.js:74
+msgid "12-hour"
+msgstr ""
+
+#: includes/class-smart-schedule.php:154
+msgid "12-hour (AM/PM)"
+msgstr ""
+
+#: includes/class-smart-schedule.php:155 assets/scheduler.js:74
+msgid "24-hour"
+msgstr ""
+
+#: includes/class-smart-schedule.php:349
+msgid "A published post cannot be moved to a future date. Return it to draft first, then schedule it."
+msgstr ""
+
+#: assets/scheduler.js:75
+msgid "AM or PM"
+msgstr ""
+
+#: assets/scheduler.js:94 assets/scheduler.js:166
+msgid "Advanced options"
+msgstr ""
+
+#: assets/scheduler.js:84
+msgid "Advanced scheduling"
+msgstr ""
+
+#: assets/scheduler.js:94 assets/scheduler.js:181
+msgid "Apply"
+msgstr ""
+
+#: assets/scheduler.js:181
+msgid "Apply date"
+msgstr ""
+
+#: assets/scheduler.js:181
+msgid "Applying…"
+msgstr ""
+
+#: assets/scheduler.js:39
+msgid "April"
+msgstr ""
+
+#: assets/scheduler.js:39
+msgid "August"
+msgstr ""
+
+#: assets/scheduler.js:89
+msgid "Calculating…"
+msgstr ""
+
+#: assets/scheduler.js:79
+msgid "Calendar dates"
+msgstr ""
+
+#: assets/scheduler.js:94
+msgid "Cancel"
+msgstr ""
+
+#: assets/scheduler.js:376
+msgid "Checking time…"
+msgstr ""
+
+#: assets/scheduler.js:362
+msgid "Choose a future time at least"
+msgstr ""
+
+#: assets/editor.js:87
+msgid "Choose a past publication date. To republish at a future date, first move this article to draft."
+msgstr ""
+
+#: includes/class-smart-schedule-time.php:15
+msgid "Choose a valid timezone."
+msgstr ""
+
+#: assets/scheduler.js:74
+msgid "Clock format"
+msgstr ""
+
+#: includes/class-smart-schedule.php:439
+msgid "Clock format must be 12 or 24."
+msgstr ""
+
+#: assets/scheduler.js:70
+msgid "Close scheduler"
+msgstr ""
+
+#: assets/scheduler.js:89
+msgid "Conversion details"
+msgstr ""
+
+#: assets/scheduler.js:404
+msgid "Conversion failed."
+msgstr ""
+
+#: assets/scheduler.js:401
+msgid "Converting the same publishing moment…"
+msgstr ""
+
+#: assets/scheduler.js:422
+msgid "Correct the hour or minute before switching formats."
+msgstr ""
+
+#: assets/scheduler.js:459
+msgid "Could not save favourites:"
+msgstr ""
+
+#: assets/scheduler.js:472
+msgid "Could not stage this schedule."
+msgstr ""
+
+#: assets/scheduler.js:473
+msgid "Could not validate the schedule."
+msgstr ""
+
+#: includes/class-smart-schedule.php:196
+msgid "Current UTC"
+msgstr ""
+
+#: includes/class-smart-schedule.php:194
+msgid "Current website time"
+msgstr ""
+
+#: assets/scheduler.js:76
+msgid "DATE"
+msgstr ""
+
+#: assets/scheduler.js:77
+msgid "Day"
+msgstr ""
+
+#: assets/scheduler.js:39
+msgid "December"
+msgstr ""
+
+#: includes/class-smart-schedule.php:152
+msgid "Default clock format"
+msgstr ""
+
+#: includes/class-smart-schedule.php:158
+msgid "Default editor timezone"
+msgstr ""
+
+#: includes/class-smart-schedule.php:171
+msgid "Defaults to two minutes. This avoids accidentally choosing a timestamp at or immediately before the current moment."
+msgstr ""
+
+#: includes/class-smart-schedule.php:129
+msgid "Disabled internally (external cron recommended)"
+msgstr ""
+
+#: includes/class-smart-schedule.php:426
+msgid "Editor preferences are disabled."
+msgstr ""
+
+#: includes/class-smart-schedule.php:168
+msgid "Enable Classic Editor integration"
+msgstr ""
+
+#: includes/class-smart-schedule.php:151
+msgid "Enable Smart Schedule"
+msgstr ""
+
+#: includes/class-smart-schedule.php:180
+msgid "Enable on all compatible post types (including custom News, Reviews and Articles)"
+msgstr ""
+
+#: assets/scheduler.js:370
+msgid "Enter a real date, valid hour and minute."
+msgstr ""
+
+#: includes/class-smart-schedule-time.php:151
+msgid "Enter a valid UTC timestamp."
+msgstr ""
+
+#: includes/class-smart-schedule-time.php:43
+msgid "Enter a valid date (1970–2100) and time (00:00–23:59)."
+msgstr ""
+
+#: assets/scheduler.js:333
+msgid "Enter a valid date and time."
+msgstr ""
+
+#: assets/scheduler.js:353
+msgid "Entered timezone"
+msgstr ""
+
+#: includes/class-smart-schedule.php:198
+msgid "Example scheduled post cron event"
+msgstr ""
+
+#: includes/class-smart-schedule.php:173
+msgid "Favourite timezones"
+msgstr ""
+
+#: assets/scheduler.js:39
+msgid "February"
+msgstr ""
+
+#: assets/scheduler.js:166
+msgid "Fewer options"
+msgstr ""
+
+#: includes/class-smart-schedule-time.php:107
+msgid "First occurrence: %1$s %2$s (UTC%3$s)"
+msgstr ""
+
+#: assets/scheduler.js:40
+msgid "Fri"
+msgstr ""
+
+#: assets/scheduler.js:75
+msgid "Hour"
+msgstr ""
+
+#: includes/class-smart-schedule.php:175
+msgid "IANA timezone IDs, separated by commas. Up to 12 favourites."
+msgstr ""
+
+#: assets/scheduler.js:88
+msgid "If you switch timezones"
+msgstr ""
+
+#: includes/class-smart-schedule.php:433
+msgid "Invalid timezone."
+msgstr ""
+
+#: assets/scheduler.js:39
+msgid "January"
+msgstr ""
+
+#: assets/scheduler.js:39
+msgid "July"
+msgstr ""
+
+#: assets/scheduler.js:39
+msgid "June"
+msgstr ""
+
+#: assets/scheduler.js:88
+msgid "Keep the entered clock time"
+msgstr ""
+
+#: assets/scheduler.js:88
+msgid "Keep the publishing moment"
+msgstr ""
+
+#: assets/scheduler.js:39
+msgid "March"
+msgstr ""
+
+#: assets/scheduler.js:39
+msgid "May"
+msgstr ""
+
+#: includes/class-smart-schedule.php:169
+msgid "Minimum scheduling lead time (minutes)"
+msgstr ""
+
+#: assets/scheduler.js:75
+msgid "Minute"
+msgstr ""
+
+#: assets/classic.js:30
+msgid "Missing WordPress timestamp field #"
+msgstr ""
+
+#: assets/scheduler.js:40
+msgid "Mon"
+msgstr ""
+
+#: assets/scheduler.js:77
+msgid "Month"
+msgstr ""
+
+#: assets/scheduler.js:459
+msgid "Network unavailable"
+msgstr ""
+
+#: assets/scheduler.js:79
+msgid "Next month"
+msgstr ""
+
+#: includes/class-smart-schedule.php:198
+msgid "No publish_future_post cron event found for the earliest scheduled post. Check WP-Cron."
+msgstr ""
+
+#: includes/class-smart-schedule.php:198
+msgid "No scheduled posts found."
+msgstr ""
+
+#: assets/scheduler.js:28
+msgid "Not set"
+msgstr ""
+
+#: assets/scheduler.js:39
+msgid "November"
+msgstr ""
+
+#: assets/scheduler.js:39
+msgid "October"
+msgstr ""
+
+#: assets/scheduler.js:360
+msgid "Offline preview: the server could not be reached. The time will be re-checked when you apply."
+msgstr ""
+
+#: includes/class-smart-schedule.php:450
+msgid "One or more favourite timezones are invalid."
+msgstr ""
+
+#: assets/scheduler.js:457
+msgid "Only 12 favourite timezones are supported. Remove another favourite first."
+msgstr ""
+
+#: includes/class-smart-schedule.php:195
+msgid "PHP/server default timezone"
+msgstr ""
+
+#: assets/scheduler.js:79
+msgid "Previous month"
+msgstr ""
+
+#: assets/editor.js:135
+msgid "Publication date saved and UTC time verified."
+msgstr ""
+
+#: assets/editor.js:97
+msgid "Publication date staged. Click Update to save the change."
+msgstr ""
+
+#: assets/scheduler.js:70
+msgid "Publish"
+msgstr ""
+
+#: assets/editor.js:97
+msgid "Publishing time staged. Click Schedule or Update to save the post."
+msgstr ""
+
+#: includes/class-smart-schedule.php:166
+msgid "Remember each editor's timezone and clock format"
+msgstr ""
+
+#: assets/scheduler.js:90
+msgid "Reset to saved time"
+msgstr ""
+
+#: assets/scheduler.js:40
+msgid "Sat"
+msgstr ""
+
+#: includes/class-smart-schedule.php:188
+msgid "Save settings"
+msgstr ""
+
+#: includes/class-smart-schedule.php:150
+msgid "Scheduling defaults"
+msgstr ""
+
+#: includes/class-smart-schedule.php:191
+msgid "Scheduling diagnostics"
+msgstr ""
+
+#: assets/scheduler.js:86
+msgid "Search city, region or UTC"
+msgstr ""
+
+#: assets/scheduler.js:86
+msgid "Search timezones"
+msgstr ""
+
+#: includes/class-smart-schedule-time.php:107
+msgid "Second occurrence: %1$s %2$s (UTC%3$s)"
+msgstr ""
+
+#: includes/class-smart-schedule.php:446 includes/class-smart-schedule.php:455
+msgid "Select up to 12 favourite timezones."
+msgstr ""
+
+#: assets/scheduler.js:39
+msgid "September"
+msgstr ""
+
+#: includes/class-smart-schedule.php:118
+msgid "Settings"
+msgstr ""
+
+#: includes/class-smart-schedule.php:167
+msgid "Show UTC conversion"
+msgstr ""
+
+#: includes/class-smart-schedule.php:145
+msgid "Smart Schedule"
+msgstr ""
+
+#: assets/editor.js:56
+msgid "Smart Schedule could not find the editor publish-date control. The native WordPress picker is being used instead."
+msgstr ""
+
+#: assets/editor.js:113
+msgid "Smart Schedule could not open:"
+msgstr ""
+
+#: assets/scheduler.js:40
+msgid "Sun"
+msgstr ""
+
+#: includes/class-smart-schedule.php:179
+msgid "Supported post types"
+msgstr ""
+
+#: assets/scheduler.js:74
+msgid "TIME"
+msgstr ""
+
+#: includes/class-smart-schedule-time.php:27
+msgid "That timezone could not be loaded."
+msgstr ""
+
+#: includes/class-smart-schedule-time.php:22
+msgid "That timezone is not available on this server."
+msgstr ""
+
+#: includes/class-smart-schedule.php:336
+msgid "The UTC publication date is invalid."
+msgstr ""
+
+#: includes/class-smart-schedule.php:353
+msgid "The UTC time must be in the future for scheduling. Past dates can only be used when editing an already published or private post."
+msgstr ""
+
+#: includes/class-smart-schedule-time.php:156
+msgid "The UTC timestamp is invalid."
+msgstr ""
+
+#: includes/class-smart-schedule-time.php:162
+msgid "The UTC timestamp must be between 1970 and 2100."
+msgstr ""
+
+#: assets/scheduler.js:381
+msgid "The conversion could not be checked. Check your connection and try again."
+msgstr ""
+
+#: includes/class-smart-schedule.php:357
+msgid "The website timezone or date changed since Smart Schedule was applied. Reopen the scheduler and confirm."
+msgstr ""
+
+#: assets/scheduler.js:361
+msgid "This article is already published. Choose a past date to update its published date; rescheduling it in the future requires returning it to draft."
+msgstr ""
+
+#: includes/class-smart-schedule-time.php:99
+msgid "This local time does not exist in the selected timezone because of a clock change. Choose another time."
+msgstr ""
+
+#: includes/class-smart-schedule-time.php:111
+msgid "This local time happens twice because of a clock change. Choose which occurrence you mean."
+msgstr ""
+
+#: assets/scheduler.js:335
+msgid "This local time occurs twice. Choose one:"
+msgstr ""
+
+#: assets/classic.js:20
+msgid "This time repeats in the website timezone. Classic Editor cannot safely preserve the selected occurrence. Choose a different time or use Gutenberg."
+msgstr ""
+
+#: assets/scheduler.js:40
+msgid "Thu"
+msgstr ""
+
+#: assets/scheduler.js:80
+msgid "Time shown in"
+msgstr ""
+
+#: assets/scheduler.js:89
+msgid "Timezone conversion"
+msgstr ""
+
+#: includes/class-smart-schedule.php:199
+msgid "Timezone database"
+msgstr ""
+
+#: assets/scheduler.js:80
+msgid "Timezone for the entered date and time"
+msgstr ""
+
+#: includes/class-smart-schedule.php:146
+msgid "Timezone-aware scheduling through WordPress. Existing scheduled posts continue to use WordPress core."
+msgstr ""
+
+#: assets/scheduler.js:79
+msgid "Today"
+msgstr ""
+
+#: assets/scheduler.js:40
+msgid "Tue"
+msgstr ""
+
+#: assets/scheduler.js:283
+msgid "UTC (Coordinated Universal Time)"
+msgstr ""
+
+#: assets/scheduler.js:524
+msgid "Unable to load the initial time. Check your connection and try again."
+msgstr ""
+
+#: includes/class-smart-schedule-time.php:51
+msgid "Unable to read the selected date and time."
+msgstr ""
+
+#: assets/scheduler.js:381
+msgid "Unable to validate the selected time."
+msgstr ""
+
+#: includes/class-smart-schedule.php:199
+msgid "Unavailable"
+msgstr ""
+
+#: assets/editor.js:113
+msgid "Unknown error"
+msgstr ""
+
+#: assets/scheduler.js:85
+msgid "Use another timezone, favourite shortcuts and publishing conversion details without changing the simple scheduler."
+msgstr ""
+
+#: includes/class-smart-schedule.php:197
+msgid "WP-Cron"
+msgstr ""
+
+#: assets/scheduler.js:305
+msgid "Website"
+msgstr ""
+
+#: assets/scheduler.js:280 assets/scheduler.js:281 assets/scheduler.js:353
+msgid "Website time"
+msgstr ""
+
+#: includes/class-smart-schedule.php:160
+msgid "Website timezone (%s)"
+msgstr ""
+
+#: assets/scheduler.js:40
+msgid "Wed"
+msgstr ""
+
+#: includes/class-smart-schedule.php:181
+msgid "When this is enabled, compatible post types are automatically supported. Disable it to use only the checked post types below. Gutenberg post types must also support REST editing."
+msgstr ""
+
+#: assets/editor.js:84
+msgid "WordPress editor is not ready."
+msgstr ""
+
+#: includes/class-smart-schedule.php:201
+msgid "WordPress owns the publishing cron. If WP-Cron is disabled, confirm your server calls wp-cron.php or WP-CLI on a schedule."
+msgstr ""
+
+#: includes/class-smart-schedule.php:129
+msgid "WordPress page-load cron enabled"
+msgstr ""
+
+#: assets/classic.js:35
+msgid "WordPress post edit form is unavailable."
+msgstr ""
+
+#: assets/editor.js:141
+msgid "WordPress saved, but Smart Schedule could not verify the UTC time. Review the post before leaving."
+msgstr ""
+
+#: assets/classic.js:33
+msgid "WordPress timestamp Save control is unavailable."
+msgstr ""
+
+#: includes/class-smart-schedule.php:193
+msgid "WordPress website timezone"
+msgstr ""
+
+#: assets/scheduler.js:351
+msgid "WordPress will publish this as"
+msgstr ""
+
+#: assets/scheduler.js:77
+msgid "Year"
+msgstr ""
+
+#: includes/class-smart-schedule.php:400
+msgid "You cannot edit posts."
+msgstr ""
+
+#: includes/class-smart-schedule.php:386
+msgid "You cannot edit this post."
+msgstr ""
+
+#: assets/scheduler.js:359
+msgid "Your website uses a fixed UTC offset and does not adjust automatically for daylight saving time."
+msgstr ""
+
+#: assets/scheduler.js:30
+msgid "at"
+msgstr ""
+
+#: assets/scheduler.js:362
+msgid "minute(s) from now."
+msgstr ""
+
+#: assets/scheduler.js:351
+msgid "on the website."
+msgstr ""
+
+#: assets/scheduler.js:312
+msgid "★ Remove favourite"
+msgstr ""
+
+#: assets/scheduler.js:312
+msgid "☆ Save as favourite"
+msgstr ""
