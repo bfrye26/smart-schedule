@@ -1,4 +1,4 @@
-# Smart Schedule 1.1.0: Release verification
+# Smart Schedule 1.2.0: Release verification
 
 **Required before publishing on production:** Run these checks on a staging copy of your WordPress installation. The headless browser tests simulate the WordPress editor; the live integration test (`tests/test-integration.php`) exercises the real REST and cron-scheduling path on the installed site, but **timed end-to-end publication still needs the staging checklist below**.
 
@@ -7,7 +7,7 @@
 - [ ] Upgrade RC5 to `1.0.0`; confirm WordPress reports **Smart Schedule 1.0.0** as active and existing settings/favourites remain.
 - [ ] Confirm **Settings → General → Timezone** matches the intended website timezone, preferably a named IANA region such as America/Toronto.
 - [ ] Open a new draft in Gutenberg: click the existing **Publish / Immediately** control. The compact Smart Schedule picker opens instead of the native picker and is approximately 340 px wide.
-- [ ] Confirm new editors default to the website timezone; confirm returning editors retain their intentionally selected timezone and 12/24-hour clock preferences.
+- [ ] Confirm the picker opens in the website timezone for new **and** returning editors (even if a different timezone was used previously). Confirm returning editors retain their 12/24-hour clock preference and favourites. Choose another timezone, apply, close and reopen: the picker must be back on the website timezone.
 - [ ] For an old draft with a past date, the picker should start with an eligible future time instead of a past-time warning.
 - [ ] Change between **12-hour** and **24-hour** display; verify the exact scheduled UTC instant does not change.
 - [ ] Open **Advanced options** inside the popup: at desktop width it expands sideways to approximately 640 px, showing favourites, search, timezone switching policies and converted times. Test a narrow screen too.

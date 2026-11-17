@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Smart Schedule
  * Description: Timezone-aware post scheduling with 12/24-hour entry, daylight saving validation, and a live WordPress time conversion preview.
- * Version: 1.1.0
+ * Version: 1.2.0
  * Requires at least: 6.6
  * Requires PHP: 7.4
  * Tested up to: 7.1
@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define( 'SMART_SCHEDULE_VERSION', '1.1.0' );
+define( 'SMART_SCHEDULE_VERSION', '1.2.0' );
 define( 'SMART_SCHEDULE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'SMART_SCHEDULE_URL', plugin_dir_url( __FILE__ ) );
 require_once SMART_SCHEDULE_DIR . 'includes/class-smart-schedule-time.php';

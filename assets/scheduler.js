@@ -392,7 +392,9 @@
         function changeZone(next) {
             if (!next || next === state.zone) { return; }
             var previousInstant = state.preview && state.preview.utc;
-            state.zone = next; cfg.zone = next; state.choice = '';
+            // Selection is per picker session only: cfg.zone is not mutated and
+            // nothing is persisted, so the next open shows the website timezone.
+            state.zone = next; state.choice = '';
             $('#ss-zone-search').value = '';
             renderZones('');
             if (state.policy === 'instant' && previousInstant) {
@@ -403,7 +405,6 @@
                     if (token === state.request) { applyFormat(result); }
                 }).catch(function(err) { if (token === state.request) { renderPreview({message:err.message || __('Conversion failed.', 'smart-schedule')}); } });
             } else { schedule(); }
-            if (cfg.remember) { api('POST','preferences',{timezone:next}).catch(function() {}); }
         }
         function reset() {
             if (!original) { return; }

@@ -1,9 +1,13 @@
-# Smart Schedule 1.1.0: Audit-remediation QA report
+# Smart Schedule 1.2.0: QA report
 
 **Build date:** 2026-11-17  
-**Origin:** Full code audit of 1.0.0; all P1/P2/P3 findings implemented. No layout redesign.
+**Origin:** 1.1.0 audit-remediation release plus the website-timezone default change below.
 
-## Audit findings implemented
+## 1.2.0 change
+
+The "Time shown in" selector always opens in the website timezone; other timezones appear only by explicit selection and reset on reopen. Remembered timezone preferences and the `default_zone` setting no longer affect the initial display (setting removed, upgrade routine cleans stored options). Re-verified: 21/21 timezone assertions, intent/post-type/preference simulations (including the new site-default and legacy-`default_zone` cases), both Chromium suites (site-zone default, conversion after selection, reset-on-reopen), and **16/16 live WordPress integration assertions**.
+
+## 1.1.0 audit findings implemented
 
 1. **P1 — server-side published→future guard** in `apply_utc_intent` (was client-only; verified bypassable before the fix). Explicit draft/pending demotion in the same request remains allowed.
 2. **P2 — `from_utc` year bounds** (1970–2100), matching `candidates()`; year-0000/9999 intents rejected.

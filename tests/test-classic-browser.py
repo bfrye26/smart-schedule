@@ -36,6 +36,11 @@ with sync_playwright() as p:
     page.locator('.ss-native-shell').wait_for()
     assert page.evaluate('window.nativeClassicClicks')==0
     assert page.locator('.ss-advanced-toggle').is_visible()
+    # Opens in the website timezone; conversion appears only after selection.
+    assert page.locator('#ss-zone').input_value()=='America/Toronto', 'Classic picker did not default to the website timezone'
+    assert not page.locator('.ss-compact-conversion').is_visible()
+    page.locator('#ss-zone').select_option('America/Los_Angeles')
+    page.wait_for_function("document.querySelector('#ss-hour').value === '09'")
     page.locator('.ss-compact-conversion').wait_for()
     page.get_by_role('button',name='Apply',exact=True).click()
     page.locator('.ss-native-shell').wait_for(state='detached')

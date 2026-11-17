@@ -45,6 +45,14 @@ with sync_playwright() as playwright:
     assert page.locator('#ss-day').input_value() == '20'
     assert page.locator('#ss-month').input_value() == '11'
     assert page.locator('#ss-year').input_value() == '2026'
+    # The picker must open in the website timezone; another zone only appears
+    # after an explicit selection.
+    assert page.locator('#ss-zone').input_value() == 'America/Toronto', 'Picker did not default to the website timezone'
+    assert 'Website time' in page.locator('#ss-zone option:checked').inner_text()
+    assert not page.locator('.ss-compact-conversion').is_visible(), 'No conversion summary should show for the website timezone'
+    assert page.locator('#ss-hour').input_value() == '12'
+    page.locator('#ss-zone').select_option('America/Los_Angeles')
+    page.wait_for_function("document.querySelector('#ss-hour').value === '09'")
     assert page.locator('.ss-compact-conversion').is_visible(), 'Website time summary must show for a different timezone'
     assert '12:30 PM' in page.locator('.ss-compact-conversion').inner_text()
     assert page.locator('.ss-dialog').evaluate('(n)=>n.scrollHeight<=n.clientHeight+2'), 'Compact editor should fit in a normal 1050px viewport'
@@ -87,6 +95,10 @@ with sync_playwright() as playwright:
     page.locator('#ss-year').fill('2026')
     page.locator('#ss-year').dispatch_event('change')
     page.wait_for_function("!document.querySelector('.ss-apply').disabled")
+    # End this session in a non-site zone to prove the next open resets to site.
+    page.locator('#ss-zone').select_option('America/Los_Angeles')
+    page.wait_for_function("document.querySelector('#ss-hour').value === '09'")
+    page.wait_for_function("!document.querySelector('.ss-apply').disabled")
     page.locator('.ss-apply').click()
     page.locator('.ss-native-shell').wait_for(state='detached')
     assert page.evaluate('window.edits.date') == '2026-11-20T12:30:00'
@@ -100,6 +112,7 @@ with sync_playwright() as playwright:
     # Staging again, then saving a DIFFERENT date_gmt must raise the warning.
     toggle.click()
     page.locator('.ss-native-shell').wait_for()
+    assert page.locator('#ss-zone').input_value() == 'America/Toronto', 'Reopened picker must return to the website timezone'
     page.wait_for_function("!document.querySelector('.ss-apply').disabled")
     page.locator('.ss-apply').click()
     page.locator('.ss-native-shell').wait_for(state='detached')

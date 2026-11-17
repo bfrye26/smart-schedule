@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.2.0 (2026-11-17)
+
+- **The "Time shown in" selector now always opens in the website timezone.** Another timezone is shown only when the editor explicitly selects one, and the selection applies to that picker session only — reopening the picker returns to the website timezone.
+- Remembered per-editor timezone preferences no longer override the initial display (stored values are ignored; clock format and favourites still persist). The JS no longer mutates the shared config or persists timezone selections.
+- Removed the now-obsolete **Default editor timezone** admin setting; the upgrade routine drops `default_zone` from stored settings. The settings page states the website-timezone default instead.
+- Updated unit and browser regression coverage: site-zone default on open, conversion only after explicit selection, and reset-to-site on reopen (Gutenberg and Classic).
+
 ## 1.1.0 (2026-11-17)
 
 Security and robustness release implementing a full code audit.

@@ -11,15 +11,15 @@ msgstr ""
 msgid "12-hour"
 msgstr ""
 
-#: includes/class-smart-schedule.php:154
+#: includes/class-smart-schedule.php:160
 msgid "12-hour (AM/PM)"
 msgstr ""
 
-#: includes/class-smart-schedule.php:155 assets/scheduler.js:74
+#: includes/class-smart-schedule.php:161 assets/scheduler.js:74
 msgid "24-hour"
 msgstr ""
 
-#: includes/class-smart-schedule.php:349
+#: includes/class-smart-schedule.php:350
 msgid "A published post cannot be moved to a future date. Return it to draft first, then schedule it."
 msgstr ""
 
@@ -87,7 +87,7 @@ msgstr ""
 msgid "Clock format"
 msgstr ""
 
-#: includes/class-smart-schedule.php:439
+#: includes/class-smart-schedule.php:440
 msgid "Clock format must be 12 or 24."
 msgstr ""
 
@@ -99,35 +99,35 @@ msgstr ""
 msgid "Conversion details"
 msgstr ""
 
-#: assets/scheduler.js:404
+#: assets/scheduler.js:406
 msgid "Conversion failed."
 msgstr ""
 
-#: assets/scheduler.js:401
+#: assets/scheduler.js:403
 msgid "Converting the same publishing moment…"
 msgstr ""
 
-#: assets/scheduler.js:422
+#: assets/scheduler.js:423
 msgid "Correct the hour or minute before switching formats."
 msgstr ""
 
-#: assets/scheduler.js:459
+#: assets/scheduler.js:460
 msgid "Could not save favourites:"
 msgstr ""
 
-#: assets/scheduler.js:472
+#: assets/scheduler.js:473
 msgid "Could not stage this schedule."
 msgstr ""
 
-#: assets/scheduler.js:473
+#: assets/scheduler.js:474
 msgid "Could not validate the schedule."
 msgstr ""
 
-#: includes/class-smart-schedule.php:196
+#: includes/class-smart-schedule.php:195
 msgid "Current UTC"
 msgstr ""
 
-#: includes/class-smart-schedule.php:194
+#: includes/class-smart-schedule.php:193
 msgid "Current website time"
 msgstr ""
 
@@ -143,35 +143,31 @@ msgstr ""
 msgid "December"
 msgstr ""
 
-#: includes/class-smart-schedule.php:152
+#: includes/class-smart-schedule.php:158
 msgid "Default clock format"
 msgstr ""
 
-#: includes/class-smart-schedule.php:158
-msgid "Default editor timezone"
-msgstr ""
-
-#: includes/class-smart-schedule.php:171
+#: includes/class-smart-schedule.php:170
 msgid "Defaults to two minutes. This avoids accidentally choosing a timestamp at or immediately before the current moment."
 msgstr ""
 
-#: includes/class-smart-schedule.php:129
+#: includes/class-smart-schedule.php:135
 msgid "Disabled internally (external cron recommended)"
 msgstr ""
 
-#: includes/class-smart-schedule.php:426
+#: includes/class-smart-schedule.php:427
 msgid "Editor preferences are disabled."
 msgstr ""
 
-#: includes/class-smart-schedule.php:168
+#: includes/class-smart-schedule.php:167
 msgid "Enable Classic Editor integration"
 msgstr ""
 
-#: includes/class-smart-schedule.php:151
+#: includes/class-smart-schedule.php:157
 msgid "Enable Smart Schedule"
 msgstr ""
 
-#: includes/class-smart-schedule.php:180
+#: includes/class-smart-schedule.php:179
 msgid "Enable on all compatible post types (including custom News, Reviews and Articles)"
 msgstr ""
 
@@ -195,11 +191,11 @@ msgstr ""
 msgid "Entered timezone"
 msgstr ""
 
-#: includes/class-smart-schedule.php:198
+#: includes/class-smart-schedule.php:197
 msgid "Example scheduled post cron event"
 msgstr ""
 
-#: includes/class-smart-schedule.php:173
+#: includes/class-smart-schedule.php:172
 msgid "Favourite timezones"
 msgstr ""
 
@@ -223,7 +219,7 @@ msgstr ""
 msgid "Hour"
 msgstr ""
 
-#: includes/class-smart-schedule.php:175
+#: includes/class-smart-schedule.php:174
 msgid "IANA timezone IDs, separated by commas. Up to 12 favourites."
 msgstr ""
 
@@ -231,7 +227,7 @@ msgstr ""
 msgid "If you switch timezones"
 msgstr ""
 
-#: includes/class-smart-schedule.php:433
+#: includes/class-smart-schedule.php:434
 msgid "Invalid timezone."
 msgstr ""
 
@@ -263,7 +259,7 @@ msgstr ""
 msgid "May"
 msgstr ""
 
-#: includes/class-smart-schedule.php:169
+#: includes/class-smart-schedule.php:168
 msgid "Minimum scheduling lead time (minutes)"
 msgstr ""
 
@@ -283,7 +279,7 @@ msgstr ""
 msgid "Month"
 msgstr ""
 
-#: assets/scheduler.js:459
+#: assets/scheduler.js:460
 msgid "Network unavailable"
 msgstr ""
 
@@ -291,11 +287,11 @@ msgstr ""
 msgid "Next month"
 msgstr ""
 
-#: includes/class-smart-schedule.php:198
+#: includes/class-smart-schedule.php:197
 msgid "No publish_future_post cron event found for the earliest scheduled post. Check WP-Cron."
 msgstr ""
 
-#: includes/class-smart-schedule.php:198
+#: includes/class-smart-schedule.php:197
 msgid "No scheduled posts found."
 msgstr ""
 
@@ -315,15 +311,15 @@ msgstr ""
 msgid "Offline preview: the server could not be reached. The time will be re-checked when you apply."
 msgstr ""
 
-#: includes/class-smart-schedule.php:450
+#: includes/class-smart-schedule.php:451
 msgid "One or more favourite timezones are invalid."
 msgstr ""
 
-#: assets/scheduler.js:457
+#: assets/scheduler.js:458
 msgid "Only 12 favourite timezones are supported. Remove another favourite first."
 msgstr ""
 
-#: includes/class-smart-schedule.php:195
+#: includes/class-smart-schedule.php:194
 msgid "PHP/server default timezone"
 msgstr ""
 
@@ -347,8 +343,8 @@ msgstr ""
 msgid "Publishing time staged. Click Schedule or Update to save the post."
 msgstr ""
 
-#: includes/class-smart-schedule.php:166
-msgid "Remember each editor's timezone and clock format"
+#: includes/class-smart-schedule.php:165
+msgid "Remember each editor's clock format and favourite timezones"
 msgstr ""
 
 #: assets/scheduler.js:90
@@ -359,15 +355,15 @@ msgstr ""
 msgid "Sat"
 msgstr ""
 
-#: includes/class-smart-schedule.php:188
+#: includes/class-smart-schedule.php:187
 msgid "Save settings"
 msgstr ""
 
-#: includes/class-smart-schedule.php:150
+#: includes/class-smart-schedule.php:156
 msgid "Scheduling defaults"
 msgstr ""
 
-#: includes/class-smart-schedule.php:191
+#: includes/class-smart-schedule.php:190
 msgid "Scheduling diagnostics"
 msgstr ""
 
@@ -383,7 +379,7 @@ msgstr ""
 msgid "Second occurrence: %1$s %2$s (UTC%3$s)"
 msgstr ""
 
-#: includes/class-smart-schedule.php:446 includes/class-smart-schedule.php:455
+#: includes/class-smart-schedule.php:447 includes/class-smart-schedule.php:456
 msgid "Select up to 12 favourite timezones."
 msgstr ""
 
@@ -391,15 +387,15 @@ msgstr ""
 msgid "September"
 msgstr ""
 
-#: includes/class-smart-schedule.php:118
+#: includes/class-smart-schedule.php:124
 msgid "Settings"
 msgstr ""
 
-#: includes/class-smart-schedule.php:167
+#: includes/class-smart-schedule.php:166
 msgid "Show UTC conversion"
 msgstr ""
 
-#: includes/class-smart-schedule.php:145
+#: includes/class-smart-schedule.php:151
 msgid "Smart Schedule"
 msgstr ""
 
@@ -415,7 +411,7 @@ msgstr ""
 msgid "Sun"
 msgstr ""
 
-#: includes/class-smart-schedule.php:179
+#: includes/class-smart-schedule.php:178
 msgid "Supported post types"
 msgstr ""
 
@@ -431,11 +427,11 @@ msgstr ""
 msgid "That timezone is not available on this server."
 msgstr ""
 
-#: includes/class-smart-schedule.php:336
+#: includes/class-smart-schedule.php:337
 msgid "The UTC publication date is invalid."
 msgstr ""
 
-#: includes/class-smart-schedule.php:353
+#: includes/class-smart-schedule.php:354
 msgid "The UTC time must be in the future for scheduling. Past dates can only be used when editing an already published or private post."
 msgstr ""
 
@@ -451,7 +447,11 @@ msgstr ""
 msgid "The conversion could not be checked. Check your connection and try again."
 msgstr ""
 
-#: includes/class-smart-schedule.php:357
+#: includes/class-smart-schedule.php:164
+msgid "The scheduler always opens in the website timezone (%s). Editors can choose another timezone from the picker when needed."
+msgstr ""
+
+#: includes/class-smart-schedule.php:358
 msgid "The website timezone or date changed since Smart Schedule was applied. Reopen the scheduler and confirm."
 msgstr ""
 
@@ -487,7 +487,7 @@ msgstr ""
 msgid "Timezone conversion"
 msgstr ""
 
-#: includes/class-smart-schedule.php:199
+#: includes/class-smart-schedule.php:198
 msgid "Timezone database"
 msgstr ""
 
@@ -495,7 +495,7 @@ msgstr ""
 msgid "Timezone for the entered date and time"
 msgstr ""
 
-#: includes/class-smart-schedule.php:146
+#: includes/class-smart-schedule.php:152
 msgid "Timezone-aware scheduling through WordPress. Existing scheduled posts continue to use WordPress core."
 msgstr ""
 
@@ -511,7 +511,7 @@ msgstr ""
 msgid "UTC (Coordinated Universal Time)"
 msgstr ""
 
-#: assets/scheduler.js:524
+#: assets/scheduler.js:525
 msgid "Unable to load the initial time. Check your connection and try again."
 msgstr ""
 
@@ -523,7 +523,7 @@ msgstr ""
 msgid "Unable to validate the selected time."
 msgstr ""
 
-#: includes/class-smart-schedule.php:199
+#: includes/class-smart-schedule.php:198
 msgid "Unavailable"
 msgstr ""
 
@@ -535,7 +535,7 @@ msgstr ""
 msgid "Use another timezone, favourite shortcuts and publishing conversion details without changing the simple scheduler."
 msgstr ""
 
-#: includes/class-smart-schedule.php:197
+#: includes/class-smart-schedule.php:196
 msgid "WP-Cron"
 msgstr ""
 
@@ -547,15 +547,11 @@ msgstr ""
 msgid "Website time"
 msgstr ""
 
-#: includes/class-smart-schedule.php:160
-msgid "Website timezone (%s)"
-msgstr ""
-
 #: assets/scheduler.js:40
 msgid "Wed"
 msgstr ""
 
-#: includes/class-smart-schedule.php:181
+#: includes/class-smart-schedule.php:180
 msgid "When this is enabled, compatible post types are automatically supported. Disable it to use only the checked post types below. Gutenberg post types must also support REST editing."
 msgstr ""
 
@@ -563,11 +559,11 @@ msgstr ""
 msgid "WordPress editor is not ready."
 msgstr ""
 
-#: includes/class-smart-schedule.php:201
+#: includes/class-smart-schedule.php:200
 msgid "WordPress owns the publishing cron. If WP-Cron is disabled, confirm your server calls wp-cron.php or WP-CLI on a schedule."
 msgstr ""
 
-#: includes/class-smart-schedule.php:129
+#: includes/class-smart-schedule.php:135
 msgid "WordPress page-load cron enabled"
 msgstr ""
 
@@ -583,7 +579,7 @@ msgstr ""
 msgid "WordPress timestamp Save control is unavailable."
 msgstr ""
 
-#: includes/class-smart-schedule.php:193
+#: includes/class-smart-schedule.php:192
 msgid "WordPress website timezone"
 msgstr ""
 
@@ -595,11 +591,11 @@ msgstr ""
 msgid "Year"
 msgstr ""
 
-#: includes/class-smart-schedule.php:400
+#: includes/class-smart-schedule.php:401
 msgid "You cannot edit posts."
 msgstr ""
 
-#: includes/class-smart-schedule.php:386
+#: includes/class-smart-schedule.php:387
 msgid "You cannot edit this post."
 msgstr ""
 

@@ -37,6 +37,14 @@ final class Smart_Schedule {
             return;
         }
         // 1.1.0: no data migration needed; stored settings merge with defaults.
+        // 1.2.0: the picker always opens in the website timezone; drop the
+        // obsolete default_zone setting. Stored per-editor timezone prefs are
+        // left in place but ignored (clock format and favourites still apply).
+        $opts = get_option( self::OPTION, array() );
+        if ( is_array( $opts ) && array_key_exists( 'default_zone', $opts ) ) {
+            unset( $opts['default_zone'] );
+            update_option( self::OPTION, $opts );
+        }
         update_option( 'smart_schedule_version', SMART_SCHEDULE_VERSION, false );
     }
 
@@ -44,7 +52,6 @@ final class Smart_Schedule {
         return array(
             'enabled'             => 1,
             'default_clock'       => '12',
-            'default_zone'        => 'site',
             'remember_editor'     => 1,
             'show_utc'            => 1,
             'classic_enabled'     => 1,
@@ -89,8 +96,7 @@ final class Smart_Schedule {
             $clean[ $key ] = empty( $input[ $key ] ) ? 0 : 1;
         }
         $clean['default_clock'] = isset( $input['default_clock'] ) && '24' === (string) $input['default_clock'] ? '24' : '12';
-        $zone = isset( $input['default_zone'] ) && is_string( $input['default_zone'] ) ? trim( $input['default_zone'] ) : 'site';
-        $clean['default_zone'] = 'site' === $zone || self::allowed_zone( $zone ) ? $zone : 'site';
+        unset( $clean['default_zone'] ); // Removed in 1.2.0: the picker always opens in the website timezone.
         $clean['lead_minutes'] = max( 0, min( 60, isset( $input['lead_minutes'] ) ? (int) $input['lead_minutes'] : 2 ) );
         $favinput = isset( $input['favorites'] ) ? $input['favorites'] : array();
         if ( is_string( $favinput ) ) {
@@ -155,15 +161,8 @@ final class Smart_Schedule {
                             <option value="24" <?php selected( $s['default_clock'], '24' ); ?>><?php esc_html_e( '24-hour', 'smart-schedule' ); ?></option>
                         </select>
                     </div>
-                    <div class="ss-admin-field"><label for="ss-zone"><?php esc_html_e( 'Default editor timezone', 'smart-schedule' ); ?></label>
-                        <select id="ss-zone" name="<?php echo esc_attr( self::OPTION ); ?>[default_zone]">
-                            <option value="site" <?php selected( $s['default_zone'], 'site' ); ?>><?php echo esc_html( sprintf( __( 'Website timezone (%s)', 'smart-schedule' ), $site->getName() ) ); ?></option>
-                            <?php foreach ( DateTimeZone::listIdentifiers() as $id ) : ?>
-                                <option value="<?php echo esc_attr( $id ); ?>" <?php selected( $s['default_zone'], $id ); ?>><?php echo esc_html( str_replace( '_', ' ', $id ) ); ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <label class="ss-admin-check"><input type="checkbox" name="<?php echo esc_attr( self::OPTION ); ?>[remember_editor]" value="1" <?php checked( $s['remember_editor'] ); ?> /> <?php esc_html_e( "Remember each editor's timezone and clock format", 'smart-schedule' ); ?></label>
+                    <p class="description"><?php echo esc_html( sprintf( __( 'The scheduler always opens in the website timezone (%s). Editors can choose another timezone from the picker when needed.', 'smart-schedule' ), $site->getName() ) ); ?></p>
+                    <label class="ss-admin-check"><input type="checkbox" name="<?php echo esc_attr( self::OPTION ); ?>[remember_editor]" value="1" <?php checked( $s['remember_editor'] ); ?> /> <?php esc_html_e( "Remember each editor's clock format and favourite timezones", 'smart-schedule' ); ?></label>
                     <label class="ss-admin-check"><input type="checkbox" name="<?php echo esc_attr( self::OPTION ); ?>[show_utc]" value="1" <?php checked( $s['show_utc'] ); ?> /> <?php esc_html_e( 'Show UTC conversion', 'smart-schedule' ); ?></label>
                     <label class="ss-admin-check"><input type="checkbox" name="<?php echo esc_attr( self::OPTION ); ?>[classic_enabled]" value="1" <?php checked( $s['classic_enabled'] ); ?> /> <?php esc_html_e( 'Enable Classic Editor integration', 'smart-schedule' ); ?></label>
                     <div class="ss-admin-field"><label for="ss-lead"><?php esc_html_e( 'Minimum scheduling lead time (minutes)', 'smart-schedule' ); ?></label>
@@ -212,12 +211,14 @@ final class Smart_Schedule {
     public static function config() {
         $s = self::options();
         $p = $s['remember_editor'] ? self::prefs() : array();
-        $zone = ! empty( $p['timezone'] ) && self::allowed_zone( $p['timezone'] ) ? $p['timezone'] : ( 'site' === $s['default_zone'] ? wp_timezone()->getName() : $s['default_zone'] );
         return array(
             'rest'        => rest_url( 'smart-schedule/v1/' ),
             'nonce'       => wp_create_nonce( 'wp_rest' ),
             'siteZone'    => wp_timezone()->getName(),
-            'zone'        => $zone,
+            // The picker always opens in the website timezone. Another zone is
+            // only shown when the editor explicitly selects one; remembered
+            // timezone preferences no longer override the initial display.
+            'zone'        => wp_timezone()->getName(),
             'clock'       => isset( $p['clock'] ) && in_array( (string) $p['clock'], array( '12', '24' ), true ) ? (string) $p['clock'] : $s['default_clock'],
             'siteFixed'   => (bool) preg_match( '/^[+-][0-9]{2}:[0-9]{2}$/', wp_timezone()->getName() ),
             'zones'       => DateTimeZone::listIdentifiers(),

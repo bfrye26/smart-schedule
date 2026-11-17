@@ -1,8 +1,8 @@
 # Smart Schedule for WordPress
 
-**Version:** 1.1.0  
+**Version:** 1.2.0  
 **Requirements:** WordPress 6.6+; PHP 7.4+; JavaScript enabled.  
-**Status:** 1.1.0 audit-remediation release. Unit, mocked-editor, and **live WordPress REST/cron integration tests pass** on the development install. Timed end-to-end publication (waiting for WP-Cron to fire) and assistive-technology checks remain staging acceptance items.
+**Status:** 1.2.0 release. Unit, mocked-editor, and **live WordPress REST/cron integration tests pass** on the development install. Timed end-to-end publication (waiting for WP-Cron to fire) and assistive-technology checks remain staging acceptance items.
 
 ## What it does
 
@@ -27,7 +27,9 @@ Smart Schedule does **not** replace WP-Cron or implement a separate post-publish
 
 ### Timezone preferences
 
-The plugin defaults to the WordPress site's configured timezone for editors who have not chosen a different one. If **Remember each editor's timezone and clock format** is enabled, that editor's last selection takes precedence. Editors upgrading from an RC can therefore still see their previously selected city, even if the default is Website time. They can select **Website time** from the timezone selector to return to the site timezone; no WordPress global timezone setting is changed.
+The **Time shown in** selector always opens in the WordPress website timezone. Another timezone is shown only when an editor explicitly selects one, and that choice applies to the current picker session only — the next time the picker opens it returns to the website timezone. No WordPress global timezone setting is changed.
+
+If **Remember each editor's clock format and favourite timezones** is enabled, each editor's 12/24-hour preference and favourite list persist. (Before 1.2.0 the last-used timezone was also remembered and could override the default; stored timezone preferences are now ignored.)
 
 Switching the clock-format button only changes how time is displayed, never the scheduled instant. Changing the *timezone* defaults to keeping the publishing instant; Advanced options can instead preserve the entered clock time.
 
